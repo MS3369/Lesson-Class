@@ -13,10 +13,9 @@
     <div id = 'app'>
         <header>
             <h1 v-text="sitename"></h1>
-            <button v-on:click="showCheckout">
-                {{ cartItemCount }}
-                <span class="fa-solid fa-cart-shopping"></span> Checkout
-                
+            <button :disabled ="cart.length === 0" v-on:click="showCheckout" >
+                    {{cartItemCount}}
+                <span class="fa-solid fa-cart-shopping"></span> Checkout                
             </button>
 
         </header>
@@ -25,22 +24,14 @@
             <div v-if="showProduct">
                 <div v-for="club in club">  
             <figure>
-                <img v-bind:src="club.image">
+                <img v-bind:src="club.image" width="300" height="200">
             </figure>
             <h2 v-text="club.subject"></h2>
-            <p v-text="club.location"></p>
+            <p> Location :{{club.location}} </p>
+            <p>Description : {{club.detail}}</p>
             <p>Price : {{club.price}}</p>
-            <button v-on:click="addToCart" 
-            v-show="canAddtoCart"
-            v-if="canAddtoCart">Add to cart</button> 
-            <span v-if='club.availableInventory === cartItemCount'> All Out! </span>
-            <span v-else-if="club.availableInventory - cartItemCount < 5"> 
-            Only {{club.availableInventory - cartItemCount}} left !
-            </span>
-            <span v-else>Buy Now</span>
-
-           
-            <button disabled="disabled" v-else="canAddtoCart">Add to cart</button> 
+            <p>Spaces : {{club.availableInventory}}</p>
+            <button v-on:click="addToCart(club)" :disabled="club.availableInventory < 1"> <span class="fa-solid fa-cart-shopping"></span> Add to cart </button>                    
         </div>
             </div>
             <div v-else><h2>Checkout</h2>
@@ -83,7 +74,7 @@
                     <p>Last Name:  {{order.lastName}}</p>
                     <p>Address:    {{order.address}}</p>
                     <p>City:       {{order.city}}</p>
-                    <p>Order Type: {{order.gift}}/</p>
+                    <p>Order Type: {{order.gift}}</p>
                     <p>Zip:        {{order.zip}}</p>
                     <p>State:      {{order.state}}</p> 
                 </p>
@@ -124,7 +115,7 @@
                         SHJ:'SHARJAH',
                         AJ:'AJMAN'
                     },
-        club:products,
+        club:lessons,
             
             cart:[]
             
@@ -132,9 +123,15 @@
             },
             methods: {
     
-                addToCart: function(){
-                       this.cart.push(this.club.id);
+                // addToCart: function(){
+                //        this.cart.push(this.club.id);
                       
+                // },
+                addToCart(club)
+                {
+                    this.cart.push(club)
+                    club.availableInventory -=1
+                    console.log(this.cart)
                 },
                 showCheckout(){
                     this.showProduct = this.showProduct ? false : true;

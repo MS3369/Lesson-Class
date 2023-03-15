@@ -1,4 +1,4 @@
-let products = [
+let lessons = [
     {
         "id" : 001,
         "image" :'math.jpg',
@@ -7,7 +7,7 @@ let products = [
         "price" : 220,
         "detail": 'this is a beginner maths class',
         "availableInventory": 5,
-        "rating": 2 
+        // "rating": 2 
     },
 
     {
@@ -19,7 +19,7 @@ let products = [
         "price" : 350,
         "detail": 'this is a beginner science class',
         "availableInventory": 5,
-        "rating": 3
+        // "rating": 3
     },
 
     {
@@ -31,8 +31,8 @@ let products = [
         "price" : 290,
         "detail": 'this is a beginner history class',
         "availableInventory": 5,
-        "rating": 4
-    },
+      //  "rating": 4
+     },
 
     {
         
@@ -43,8 +43,8 @@ let products = [
         "price" : 240,
         "detail": 'This is an English class for beginners',
         "availableInventory": 5,
-        "rating": 2
-    },
+    //    "rating": 2
+     },
 
     {
         
@@ -56,9 +56,9 @@ let products = [
         "detail": 'This is an Arts & Drawing class',
         "availableInventory": 5,
         "rating": 5
-    },
+     },
 
-    {
+     {
         
         "id" : 505,
         "image" :'computer.jpg',
@@ -67,8 +67,8 @@ let products = [
         "price" : 460,
         "detail": 'Computing Introduction course',
         "availableInventory": 5,
-        "rating": 3.5
-    },
+    //     "rating": 3.5
+     },
     
     {
         
@@ -80,7 +80,7 @@ let products = [
         "detail": 'Social studies beginner lesson',
         "availableInventory": 5,
         "rating": 4
-    },
+     },
 
     {
         
@@ -91,8 +91,8 @@ let products = [
         "price" : 310,
         "detail": 'Arts & Drawing class',
         "availableInventory": 5,
-        "rating": 5
-    }, 
+    //    "rating": 5
+     }, 
     {
         
         "id" : 808,
@@ -102,9 +102,9 @@ let products = [
         "price" : 250,
         "detail": 'Baking class for beginners',
         "availableInventory": 5,
-        "rating": 4
-    },
-    {
+    //    "rating": 4
+     },
+     {
         
         "id" : 909,
         "image" :'french.jpg',
@@ -114,5 +114,5 @@ let products = [
         "detail": 'French learning lesson for beginners',
         "availableInventory": 5,
         "rating": 2
-    },
+     },
 ]
