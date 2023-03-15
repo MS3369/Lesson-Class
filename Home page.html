@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
-    <script src="Lessons.js"></script>
-    <title>The club of after schooling</title>
+    <script src="lessons.js"></script>
+    <title>After School Club</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
 </head>
 <body>
@@ -39,11 +39,7 @@
             </span>
             <span v-else>Buy Now</span>
 
-            <div>
-                <span v-for="n in club.rating">£</span> 
-                   
-                <span v-for="n in 5 - club.rating">*</span>
-            </div>
+           
             <button disabled="disabled" v-else="canAddtoCart">Add to cart</button> 
         </div>
             </div>
@@ -61,14 +57,11 @@
                     <p><strong> Address: </strong> <input v-model="order.address"/></p>
                     <p><strong> City: </strong> <input v-model="order.city"/> </p>
                     <p><strong> State: </strong> 
-                    
-
-                    
                     <select v-model="order.state">
                     <option disabled value="">State</option> 
                     <option v-for="(state, key) in states" 
                     v-bind:value="state">
-                    {{key}} 
+                    {{key}}
                     </option> 
                     </select>
                 
@@ -87,12 +80,12 @@
                         </p>
                     <h2>Order Information</h2>
                     <p>First Name: {{order.firstName}}</p>
-                    <p>Last Name: {{order.lastName}}</p>
-                     <p>Address: {{order.address}}</p>
-                    <p>City: {{order.city}}</p>
+                    <p>Last Name:  {{order.lastName}}</p>
+                    <p>Address:    {{order.address}}</p>
+                    <p>City:       {{order.city}}</p>
                     <p>Order Type: {{order.gift}}/</p>
-                    <p>Zip: {{order.zip}}</p>
-                    <p>State: {{order.state}}</p> 
+                    <p>Zip:        {{order.zip}}</p>
+                    <p>State:      {{order.state}}</p> 
                 </p>
 
                 <button v-on:click="submitForm"> Place Order </button>
@@ -126,22 +119,12 @@
                     dontSendGift: 'Do not send as a gift',
                         },
                 states: {
-                        AL:'ALABAMA',
-                        AR: 'ARIZONA',
-                        CA:'CALIFORNIA',
-                        NV:'NEVADA'
+                        DXB:'DUBAI',
+                        ABD: 'ABU DHABI',
+                        SHJ:'SHARJAH',
+                        AJ:'AJMAN'
                     },
         club:products,
-           //club: {
-             //   id : 1,
-               // image :'image.jpg',
-                //subject : 'Math',
-                //location: 'London',
-                //price : 100,
-                //detail: 'this is a math after school club to make your kid fall in love with the language of the universe',
-                //availableInventory: 10,
-                //rating: 3 
-            //},
             
             cart:[]
             
