@@ -8,9 +8,11 @@
     <script src="lessons.js"></script>
     <title>After School Club</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div id = 'app'>
+    <div id = 'app' class="container">
         <header>
             <h1 v-text="sitename"></h1>
             <button :disabled ="cart.length === 0" v-on:click="showCheckout" >
@@ -21,62 +23,50 @@
         </header>
         
         <main>
-            <div v-if="showProduct">
-                <div v-for="club in club">  
-            <figure>
-                <img v-bind:src="club.image" width="300" height="200">
-            </figure>
-            <h2 v-text="club.subject"></h2>
-            <p> Location :{{club.location}} </p>
-            <p>Description : {{club.detail}}</p>
-            <p>Price : {{club.price}}</p>
-            <p>Spaces : {{club.availableInventory}}</p>
-            <button v-on:click="addToCart(club)" :disabled="club.availableInventory < 1"> <span class="fa-solid fa-cart-shopping"></span> Add to cart </button>                    
-        </div>
+            <div v-if="showlessons">
+                <div class="row">
+                    <div v-for="club in club" class="col-md-4 mt-5">  
+                        <figure>
+                            <img v-bind:src="club.image" width="300" height="200">
+                        </figure>
+                        <h2 v-text="club.subject"></h2>
+                        <p> Location :{{club.location}} </p>
+                        <p>Description : {{club.detail}}</p>
+                        <p>Price : {{club.price}}</p>
+                        <p>Spaces : {{club.availablespace}}</p>
+                        <button v-on:click="addToCart(club)" :disabled="club.availablespace < 1"> <span class="fa-solid fa-cart-shopping"></span> Add to cart </button>                    
+                    </div>
+                </div>
+             
             </div>
             <div v-else><h2>Checkout</h2>
-                <p>
-                    <strong> First Name: </strong>
-                    
-                    <input v-model="order.firstName"/>
-                </p>
-                <p>
-                    <strong> Last Name: </strong>
-                    
-                    <input v-model="order.lastName"/></p>
-
-                    <p><strong> Address: </strong> <input v-model="order.address"/></p>
-                    <p><strong> City: </strong> <input v-model="order.city"/> </p>
-                    <p><strong> State: </strong> 
-                    <select v-model="order.state">
-                    <option disabled value="">State</option> 
-                    <option v-for="(state, key) in states" 
-                    v-bind:value="state">
-                    {{key}}
-                    </option> 
-                    </select>
                 
-                    <p><strong>Zip/Postal Code:</strong> <input v-model="order.zip"/></p>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                    <label for="FName" class="form-label"> First Name <input v-model="order.firstName" id="FName" class="form-control"> </label>
+                    <label for="LName" class="form-label"> Last Name <input v-model="order.lastName" id="LName" class="form-control"> </label>
+                    <label for="Phone"   class="form-label"> Phone Number <input v-model="order.number" id="phone" class="form-control" > </label>
+                    <label for="Address" class="form-label"> Address <input v-model="order.address" id="address" class="form-control"> </label>
+                    </div>
+                             
+                    </div>
+                    
+                </div>
+                
 
-                    <p><input type="checkbox" id="gift" value="true" v-model="order.gift"
-                        v-bind:true-value="order.sendGift"
-                        v-bind:false-value="order.dontSendGift">
+                </option> 
+                    </select>
+                         
 
-                        <label for="gift"> Ship As Gift? </label></p>
-                        <p><input type="radio" id="home" value="Home" v-model="order.method">
-                            <label for="home">Home</label>
-                            <input type="radio" id="business" value="Business" v-model="order.method">
-                            <label for="business">Business</label></p>
-
-                        </p>
+                    </p>
                     <h2>Order Information</h2>
                     <p>First Name: {{order.firstName}}</p>
                     <p>Last Name:  {{order.lastName}}</p>
                     <p>Address:    {{order.address}}</p>
-                    <p>City:       {{order.city}}</p>
-                    <p>Order Type: {{order.gift}}</p>
-                    <p>Zip:        {{order.zip}}</p>
-                    <p>State:      {{order.state}}</p> 
+                    <p>Phone number:       {{order.number}}</p>
+                    
+
                 </p>
 
                 <button v-on:click="submitForm"> Place Order </button>
@@ -96,45 +86,29 @@
             
             data: {
                 sitename: "After School Club",
-                showProduct: true,
-                order: {
+                showlessons: true,
+               order: {
                     firstName: '',
                     lastName: '',
+                    phonenumber: '',
                     address: '',
-                    city: '',
-                    zip: '',
-                    state: '',
-                    method: 'Home',
-                    gift: '',
-                    sendGift: 'Send as a gift',
-                    dontSendGift: 'Do not send as a gift',
                         },
-                states: {
-                        DXB:'DUBAI',
-                        ABD: 'ABU DHABI',
-                        SHJ:'SHARJAH',
-                        AJ:'AJMAN'
-                    },
+                
         club:lessons,
             
             cart:[]
             
-
             },
             methods: {
     
-                // addToCart: function(){
-                //        this.cart.push(this.club.id);
-                      
-                // },
                 addToCart(club)
                 {
                     this.cart.push(club)
-                    club.availableInventory -=1
+                    club.availablespace -=1
                     console.log(this.cart)
                 },
                 showCheckout(){
-                    this.showProduct = this.showProduct ? false : true;
+                    this.showlessons = this.showlessons ? false : true;
                 },
                 submitForm () {
                 alert('Order accepted')
@@ -147,15 +121,12 @@
                 return this.cart.length || '';
                 },
                 canAddtoCart: function() {
-                return this.club.availableInventory > this.cartItemCount;
-                
+                return this.club.availablespace > this.cartItemCount;
+   
             
-            }
-                
+            }            
             
             },
-            
-
             
         })
     </script>

@@ -6,8 +6,8 @@ let lessons = [
         "location": 'Townhall',
         "price" : 220,
         "detail": 'this is a beginner maths class',
-        "availableInventory": 5,
-        // "rating": 2 
+        "availablespace": 5,
+ 
     },
 
     {
@@ -18,8 +18,8 @@ let lessons = [
         "location": 'City Centre',
         "price" : 350,
         "detail": 'this is a beginner science class',
-        "availableInventory": 5,
-        // "rating": 3
+        "availablespace": 5,
+        
     },
 
     {
@@ -30,8 +30,8 @@ let lessons = [
         "location": 'Outskirts city',
         "price" : 290,
         "detail": 'this is a beginner history class',
-        "availableInventory": 5,
-      //  "rating": 4
+        "availablespace": 5,
+      
      },
 
     {
@@ -42,8 +42,7 @@ let lessons = [
         "location": 'Downtown',
         "price" : 240,
         "detail": 'This is an English class for beginners',
-        "availableInventory": 5,
-    //    "rating": 2
+        "availablespace": 5,
      },
 
     {
@@ -54,8 +53,8 @@ let lessons = [
         "location": 'Market Area',
         "price" : 310,
         "detail": 'This is an Arts & Drawing class',
-        "availableInventory": 5,
-        "rating": 5
+        "availablespace": 5,
+
      },
 
      {
@@ -66,8 +65,8 @@ let lessons = [
         "location": 'Beach Area',
         "price" : 460,
         "detail": 'Computing Introduction course',
-        "availableInventory": 5,
-    //     "rating": 3.5
+        "availablespace": 5,
+
      },
     
     {
@@ -78,8 +77,8 @@ let lessons = [
         "location": 'Townhall',
         "price" : 190,
         "detail": 'Social studies beginner lesson',
-        "availableInventory": 5,
-        "rating": 4
+        "availablespace": 5,
+
      },
 
     {
@@ -90,8 +89,8 @@ let lessons = [
         "location": 'Outskirts city',
         "price" : 310,
         "detail": 'Arts & Drawing class',
-        "availableInventory": 5,
-    //    "rating": 5
+        "availablespace": 5,
+
      }, 
     {
         
@@ -101,8 +100,8 @@ let lessons = [
         "location": 'Market Area',
         "price" : 250,
         "detail": 'Baking class for beginners',
-        "availableInventory": 5,
-    //    "rating": 4
+        "availablespace": 5,
+ 
      },
      {
         
@@ -112,7 +111,6 @@ let lessons = [
         "location": 'City Centre',
         "price" : 310,
         "detail": 'French learning lesson for beginners',
-        "availableInventory": 5,
-        "rating": 2
-     },
+        "availablespace": 5,
+      },
 ]
