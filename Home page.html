@@ -52,7 +52,7 @@
                         <button v-on:click="addToCart(club)" :disabled="club.availablespace < 1" class="btn btn-success"> <span class="fa-solid fa-cart-shopping">Add to cart</button>                    
                     </div>
                 </div>
-             
+             <!--  sorting layout-->
             </div>
             <div v-else><h2>Checkout</h2>
                 
@@ -84,7 +84,32 @@
                 </p>
 
                 <button v-on:click="submitForm"> Place Order </button>
+
+<div v-for="club in checkOut()" class="col-lg-6 p-2">
+                    <div class="p-2 border ">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="mt-2">
+                                <h4 v-text="club.subject"></h4>
+                                <div class="mt-4">
+                                    <h5 class=" mb-0" v-text="club.location"></h5>
+                                    <p class="mb-0">Price: ${{club.price}}</p>
+
+                                    <button class="btn btn-danger"
+                                        v-on:click="removeCartItem(club.id)"><small>Remove</small></button>
+                                </div>
+                            </div>
+                            <div class="image">
+                                 <figure class="mb-0">
+                                    <img v-bind:src="club.image" alt="" width="120" height="140">
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
+
+
         </main>
             
 
@@ -125,9 +150,31 @@
                     this.showlessons = this.showlessons ? false : true;
                 },
                 submitForm () {
-                alert('Order accepted')
+                alert('Order accepted') 
+                },
+                checkOut() {
+                    let show= this.cart
+                    return show
+                },
+                removeCartItem(id) {
+                       let showcart = this.cart
+                       let less = this.subjects
+                       for (let i = 0; i < showcart.length; i++) {
+                           console.log(showcart[i].id)
+                           if (id == showcart[i].id) {
+                               showcart.splice(i, 1)
+   
+                           }
+                       }
+                       for (let i = 0; i < less.length; i++) {
+                           console.log(less[i].id)
+                           if (id == less[i].id) {
+                               less[i].stock += 1
+   
+                           }
+                       }
+                   },
 
-            }
             },
             computed: { //the computed property object
                 cartItemCount: function(){ //the property name
