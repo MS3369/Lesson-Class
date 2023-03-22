@@ -1,11 +1,11 @@
 let lessons = [
     {
         "id" : 001,
-        "image" :'math.jpg',
-        "subject" : 'Mathematics',
+        "image" :'img/swimming.jpg',
+        "subject" : 'Swimming',
         "location": 'Townhall',
         "price" : 220,
-        "detail": 'this is a beginner maths class',
+        "detail": 'this is a beginner swimming class',
         "availablespace": 5,
  
     },
@@ -13,11 +13,11 @@ let lessons = [
     {
     
         "id" : 101,
-        "image" :'science.jpg',
-        "subject" : 'Science',
+        "image" :'img/Archery.png',
+        "subject" : 'Archery',
         "location": 'City Centre',
         "price" : 350,
-        "detail": 'this is a beginner science class',
+        "detail": 'this is a beginner Archery training',
         "availablespace": 5,
         
     },
@@ -25,7 +25,7 @@ let lessons = [
     {
         
         "id" : 202,
-        "image" :'history.jpg',
+        "image" :'img/history.jpg',
         "subject" : 'History',
         "location": 'Outskirts city',
         "price" : 290,
@@ -37,18 +37,18 @@ let lessons = [
     {
         
         "id" : 303,
-        "image" :'english.png',
+        "image" :'img/english.png',
         "subject" : 'English',
         "location": 'Downtown',
         "price" : 240,
-        "detail": 'This is an English class for beginners',
+        "detail": 'This is an English class for Non-English students',
         "availablespace": 5,
      },
 
     {
         
         "id" : 404,
-        "image" :'art.jpg',
+        "image" :'img/art.jpg',
         "subject" : 'Arts & Drawing',
         "location": 'Market Area',
         "price" : 310,
@@ -60,7 +60,7 @@ let lessons = [
      {
         
         "id" : 505,
-        "image" :'computer.jpg',
+        "image" :'img/computer.jpg',
         "subject" : 'Computing',
         "location": 'Beach Area',
         "price" : 460,
@@ -72,11 +72,11 @@ let lessons = [
     {
         
         "id" : 606,
-        "image" :'social.png',
-        "subject" : 'Social Studies',
+        "image" :'img/Culinary.jpg',
+        "subject" : 'Culinary',
         "location": 'Townhall',
         "price" : 190,
-        "detail": 'Social studies beginner lesson',
+        "detail": 'Culinary starter course',
         "availablespace": 5,
 
      },
@@ -84,18 +84,18 @@ let lessons = [
     {
         
         "id" : 707,
-        "image" :'chemistry.jpg',
-        "subject" : 'Chemistry',
+        "image" :'img/photography.jpg',
+        "subject" : 'Photography',
         "location": 'Outskirts city',
         "price" : 310,
-        "detail": 'Arts & Drawing class',
+        "detail": 'Photography class for kids',
         "availablespace": 5,
 
      }, 
     {
         
         "id" : 808,
-        "image" :'baking.jpg',
+        "image" :'img/baking.jpg',
         "subject" : 'Baking',
         "location": 'Market Area',
         "price" : 250,
@@ -106,11 +106,11 @@ let lessons = [
      {
         
         "id" : 909,
-        "image" :'french.jpg',
+        "image" :'img/french.jpg',
         "subject" : 'French',
         "location": 'City Centre',
         "price" : 310,
-        "detail": 'French learning lesson for beginners',
+        "detail": 'Learning French as a second language',
         "availablespace": 5,
       },
 ]

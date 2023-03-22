@@ -63,8 +63,10 @@
                     <label for="LName" class="form-label"> Last Name <input v-model="order.lastName" id="LName" class="form-control"> </label>
                     <label for="Phone"   class="form-label"> Phone Number <input v-model="order.number" type="number" min="0" id="phone" class="form-control" > </label>
                     <label for="Address" class="form-label"> Address <input v-model="order.address" id="address" class="form-control"> </label>
-                    </div>
-                             
+                    
+                    
+                </div>
+                         
                     </div>
                     
                 </div>
@@ -80,10 +82,13 @@
                     <p>Last Name:  {{order.lastName}}</p>
                     <p>Address:    {{order.address}}</p>
                     <p>Phone number:{{order.number}}</p>
-                    
+                
+                    <!-- <button v-if="placeOrder" v-on:click="submitForm"> Place Order </button> -->
+                    <button v-on:click="submitForm"> Place Order </button>
+            
                 </p>
 
-                <button v-on:click="submitForm"> Place Order </button>
+                
 
 <div v-for="club in checkOut()" class="col-lg-6 p-2">
                     <div class="p-2 border ">
@@ -119,7 +124,7 @@
 
 
     <script type="text/javascript">
-        var club = new Vue({
+        var clubs = new Vue({
 
             el : '#app',
             
@@ -133,7 +138,7 @@
                     address: '',
                         },
                 
-        club:lessons,
+                club:lessons,
             
             cart:[]
             
@@ -157,23 +162,29 @@
                     return show
                 },
                 removeCartItem(id) {
-                       let showcart = this.cart
+                      let showcart = this.cart
                        let less = this.subjects
-                       for (let i = 0; i < showcart.length; i++) {
-                           console.log(showcart[i].id)
-                           if (id == showcart[i].id) {
-                               showcart.splice(i, 1)
+                       let i=0;
+                             showcart.splice(i, 1)
+                           // showcart.id.availablespace++ 
+                           this.cart.availablespace
+                                                    //    }
+                    //    }
+                    //    for (let i = 0; i < this.club.length; i++) {
+                    //        console.log(this.club[i].id)
+                    //        if (id == this.club[i].id) {
+                    //            this.club[i].availablespace += 1
    
-                           }
-                       }
-                       for (let i = 0; i < less.length; i++) {
-                           console.log(less[i].id)
-                           if (id == less[i].id) {
-                               less[i].stock += 1
-   
-                           }
-                       }
-                   },
+                    //        }
+                    //    }
+                      // removeFromCart(cart_item) {
+                // id.availablespace++
+
+                //     this.cart.splice(cart_item, 1)
+
+                // } 
+                   }
+
 
             },
             computed: { //the computed property object
@@ -188,7 +199,24 @@
             }            
             
             },
-            
+            placeOrder() {
+                const address = /^[A-Za-z]+$/;
+                const number = /^[0-9]+$/;
+                let valid = true
+                if (this.order.address.match(letter) == null) {
+                    valid = false
+                }
+                if (this.order.number.match(number) == null) {
+                    valid = false
+                }
+                if (valid) {
+                    return true
+                } else {
+                    return false
+                }
+                
+            },
+                        
         })
     </script>
     
